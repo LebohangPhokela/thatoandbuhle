@@ -1,0 +1,6 @@
+{
+  "name": "Kgoroso Ya Ngwetsi",
+  "description": "Premium wedding RSVP website for Thato and Buhle",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
