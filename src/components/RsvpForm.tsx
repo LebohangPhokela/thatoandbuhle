@@ -47,26 +47,23 @@ export default function RsvpForm() {
     setStatus('submitting');
 
     const fields: Record<string, string | number> = {
-      'Full Name': form.fullName,
+      'Name': form.fullName,
       'Phone Number': form.phone,
       'Email Address': form.email,
-      'Attending': form.attending === 'yes' ? 'Yes' : 'No',
-      'Submitted At': new Date().toISOString(),
+      'Will You Be Attending?': form.attending === 'yes' ? 'Yes' : 'No',
+      'RSVP Submission Status': 'Submitted',
     };
 
     if (form.attending === 'yes') {
-      fields['Bringing a Guest'] = form.bringingGuest === 'yes' ? 'Yes' : 'No';
-      if (form.bringingGuest === 'yes' && form.guestName) {
-        fields['Guest Full Name'] = form.guestName;
-      }
+      fields['Bringing a Guest?'] = form.bringingGuest === 'yes' ? 'Yes' : 'No';
       if (form.numberOfPeople) {
         fields['Number of People Attending'] = parseInt(form.numberOfPeople, 10);
       }
       if (form.dietary) {
-        fields['Dietary Requirements'] = form.dietary;
+        fields['Dietary Requirements (Optional)'] = form.dietary;
       }
       if (form.songRequest) {
-        fields['Song Request'] = form.songRequest;
+        fields['Song Request (Optional)'] = form.songRequest;
       }
     }
 
