@@ -13,6 +13,7 @@ interface FormData {
   bringingGuest: string;
   guestName: string;
   numberOfPeople: string;
+  childrenCount: string;
   dietary: string;
   songRequest: string;
   message: string;
@@ -26,6 +27,7 @@ const initialForm: FormData = {
   bringingGuest: '',
   guestName: '',
   numberOfPeople: '',
+  childrenCount: '',
   dietary: '',
   songRequest: '',
   message: '',
@@ -56,6 +58,9 @@ export default function RsvpForm() {
 
     if (form.attending === 'yes') {
       fields['Bringing a Guest?'] = form.bringingGuest === 'yes' ? 'Yes' : 'No';
+      if (form.childrenCount) {
+        fields['How Many Children'] = parseInt(form.childrenCount, 10);
+      }
       if (form.numberOfPeople) {
         fields['Number of People Attending'] = parseInt(form.numberOfPeople, 10);
       }
@@ -205,13 +210,18 @@ export default function RsvpForm() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
+                      <label className="block font-sans text-[10px] uppercase tracking-widest text-text-muted mb-1">How many Children</label>
+                      <input required={attending === 'yes'} disabled={attending === 'no'} type="number" min="0" max="10" placeholder="0" value={form.childrenCount} onChange={set('childrenCount')} className="w-full bg-white/80 border-b border-slate-200 px-3 py-3 text-xs md:text-sm focus:outline-none focus:border-slate-900 transition-colors disabled:opacity-50" />
+                    </div>
+                    <div>
                       <label className="block font-sans text-[10px] uppercase tracking-widest text-text-muted mb-1">Number of people attending</label>
                       <input required={attending === 'yes'} disabled={attending === 'no'} type="number" min="1" max="10" value={form.numberOfPeople} onChange={set('numberOfPeople')} className="w-full bg-white/80 border-b border-slate-200 px-3 py-3 text-xs md:text-sm focus:outline-none focus:border-slate-900 transition-colors disabled:opacity-50" />
                     </div>
-                    <div>
-                      <label className="block font-sans text-[10px] uppercase tracking-widest text-text-muted mb-1">Dietary Requirements</label>
-                      <input disabled={attending === 'no'} type="text" value={form.dietary} onChange={set('dietary')} className="w-full bg-white/80 border-b border-slate-200 px-3 py-3 text-xs md:text-sm focus:outline-none focus:border-slate-900 transition-colors disabled:opacity-50" placeholder="Optional" />
-                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block font-sans text-[10px] uppercase tracking-widest text-text-muted mb-1">Dietary Requirements</label>
+                    <input disabled={attending === 'no'} type="text" value={form.dietary} onChange={set('dietary')} className="w-full bg-white/80 border-b border-slate-200 px-3 py-3 text-xs md:text-sm focus:outline-none focus:border-slate-900 transition-colors disabled:opacity-50" placeholder="Optional" />
                   </div>
 
                   <div>

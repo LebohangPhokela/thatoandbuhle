@@ -1,5 +1,4 @@
 import { motion } from 'motion/react';
-import image3 from '@/assets/images/image3.jpeg';
 import image4 from '@/assets/images/image4.jpeg';
 
 export default function Story() {
@@ -55,14 +54,6 @@ export default function Story() {
             <p>
               From the merging of our histories to the building of our future, this day symbolises the deep roots we share and the beautiful branches we will grow together.
             </p>
-          </div>
-
-          <div className="flex items-center gap-4 mt-8 pt-6 border-t border-slate-200">
-            <img src={image3} className="w-16 h-16 md:w-20 md:h-20 rounded-2xl object-cover grayscale opacity-80" alt="Established" />
-            <div className="flex flex-col justify-center text-left">
-              <p className="text-[10px] uppercase font-bold tracking-tighter text-slate-400">Established</p>
-              <p className="text-xs font-serif text-text-base">Autumn 2024</p>
-            </div>
           </div>
         </motion.div>
 
