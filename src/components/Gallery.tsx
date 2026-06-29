@@ -3,12 +3,14 @@ import image1 from '@/assets/images/image1.jpeg';
 import image2 from '@/assets/images/image2.jpeg';
 import image3 from '@/assets/images/image3.jpeg';
 import image4 from '@/assets/images/image4.jpeg';
+import image5 from '@/assets/images/image5.jpeg';
 
 const IMAGES = [
   { url: image1, position: 'center 20%' }, // Traditional wedding - faces high up
   { url: image2, position: 'center' },      // Pregnancy photoshoot - default center
   { url: image3, position: 'center' },      // Gazebo photoshoot - default center
-  { url: image4, position: 'center 20%' }  // Hallway couple - faces high up
+  { url: image4, position: 'center 20%' }, // Hallway couple - faces high up
+  { url: image5, position: 'center 20%' }  // Mirror selfie couple - faces high up
 ];
 
 export default function Gallery() {
